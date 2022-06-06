@@ -1,0 +1,292 @@
+/*a sintaxe inicia com   seletor{propriedade: valor;} o seletor pode ser qualquer tag identificador ou class do documento html */
+/*Definindo color
+body{background-color: #ff0000;}*/
+
+/*Importação google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/*CSS Reset*/
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;  /*Tamanho da font padrão mas que pode ser direcionado sem distorção ou quebra de layout 1em = 16 pixels*/
+}
+
+/*Layout - classes - centralizar  conteudo na tela*/
+.Container {
+    margin: 0 auto;
+    /* background-color: #dcdcdc; metade do cabeçalho pra baixo*/
+}
+.Flex {
+    
+    /*Justify-content faz o alinhamento dos icones no container por padrão ele vem com flex-start que é no inicio, mas podemos colocar 
+    flex-start
+    flex-end         que é no final
+    center           que é no centro
+    space-between    que são separados  um de cada lado e um no centro
+    space-around     deixando um espaço ao redor
+    space-evenly     deixando um espaço uniforme entre eles
+    */
+    /*Padrão linha fez as opções ficarem ao lado do icone*/
+    display: flex; 
+    justify-content: space-between;
+    /*background-color: #a9a9a9;   metade do cabeçalho pra cima*/
+}
+/*CSS FLEXBOX   align-itens   permite alinhar itens com alturas diferentes no container 
+stretch      se esticam para ficar alinhados
+flex-start   alinham pela aresta de cima
+flex-end     alinham pela aresta de cima
+center       alinham pela linha central independente do conteudo
+baseline     de acordo com o conteudo*/
+/*Classe usada no layout do sobre*/
+.Flex2 {
+    display: flex;
+    align-items: center;
+}
+.Flex3 {
+    display: flex;
+    flex-direction: column;
+}
+.Botao {
+    text-decoration: none; /*Tirar sublinhado*/
+    color: #fff; /*Cor da escrita do botão*/
+    font-size: 1.3em;
+    font-weight: 700; /*Peso da fonte, parecido com um negrito - isso só é possivel devido a importação do google sans*/
+    background-color: #c00000; /*Cor do botão*/
+    padding: 10px 40px; /*Dimensão 10 pixels pra ciam e 10 pra baixo; 40 pra esquerda e 40 pra direita*/
+    border: 2px solid #fff; /*Borda sólida na cor branca*/
+    border-radius: 25px; /*Arredondamento da borda*/
+}
+
+/* Voltar ao topo do site*/
+/*top = topo, bottom = abaixo , left = esquerda , right = direita , para usar esses comandos é necessário usar o position: fixed*/
+#topo {
+    /*Posição fixa 10 px a direita e 10 abaixo do botão de voltar*/
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+/*Smart Phone Portrait>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*Cabeçalho*/
+header {
+    height: 60px;
+}
+#logo img {
+    /*Largura*/
+    width: 128px;
+    /*Altura*/
+    height: 128px;
+}
+#check {
+    display: none; /*Ocultando o checkbox*/
+}
+label {
+    font-size: 3em; /*Tamanho do icone*/
+    /*padding-right: 15px; Distancia do icone a borda*/
+    position: fixed;
+    top: 5px;
+    right: 15px;
+    color: rgba(0,0,0,0.5);
+}
+
+nav ul {
+    list-style: none; /*Essa linha remove os bulets*/
+    background-color: #343538;
+    height: 100vh; /*altura do menu em relação ao tamanho total da tela.*/
+    position: fixed;
+    top: 60px;
+    right: -100%; /*Propriedade que será alterada ao clicar no botão de menu*/
+    width: 100%; /*Definindo largura total para ul*/
+    transition: all 0.5s; /*Efeito de transição*/
+}
+/*Quando clicar no simbolo do menu as opções aparecerão alterando uma propriedado da nav ul*/
+#check:checked ~ ul {
+    right: 0;
+} 
+
+nav ul li {
+    padding: 20px; /*Espaço de cada parte do menu*/
+    border-bottom: 1px solid #a9a9a9; /*Linha divisão entre os itens do menu*/
+}
+
+nav ul li a {
+    text-decoration: none; /*Tirar o sublinhado dos itens do menu*/
+    color: #fff; /*Cor dos itens do menu*/
+}
+/*Destaque*/
+main {
+    height: 75vh; /*75 por cento do tamanho da tela. Independente do tamanho da tela*/
+    background: url(img/banner.jpg); /*inserindo imagem de back ground*/
+    background-size: cover; /*Ajustar a imagem ao tamanho da tela do dispositivo*/
+    background-position: center; /*Centralizar a imagem do background*/
+    color: #fff; /*Cor dos textos*/
+    /*Configuração de conteúdo dentro de um container  flex-direction
+    row                          em linha da esquerda para a direita é o padrão quando não há a configuração
+    row-revese                   em linha da direita para a esquerda
+    column                       em coluna de cima para baixo 
+    column-reverse               em coluna de baixo para cima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*Centralizando o bloco do conteudo na pagina*/
+    text-align: center; /*Centralizando o conteudo dentro do bloco*/
+}
+
+main h1 {
+    font-size: 2.5em; /*Tamanho da heiden tag h1*/
+}
+main h2 {
+    font-size: 1em;
+    margin: 20px 0px 50px 0px;/*Margem para não sobrepor cima; direita; inferior; esquerda*/
+}
+
+/*Sobre*/
+#sobre {
+    padding: 50px 0px;  /*Espaçamento inferior e superior de 50px e esquerda e direita de 0px*/ 
+    background: url(img/background.png);
+    background-size: cover; /*Fazer o background acima se ajustar ao tamanho da tela*/
+    background-position: center;  /*Centralizar a imagem do background*/
+}
+#destaqueSobre {
+    display: none;  /*isso fará a imagem destaqueSobre não aparecer para smartphones portrait*/
+}
+#textoSobre {
+    color: #fff; /*cor da fonte*/
+}
+#textoSobre h2 {
+    margin-bottom: 10px; /*margem inferior*/
+}
+.TopicosSobre {
+    margin-top: 20px;
+}
+.TopicosSobre img {
+    margin-right: 10px;
+}
+/*One Page*/
+#onepage {
+    padding: 50px 10px;
+}
+#onepage h2 {
+    margin-bottom: 10px;
+}
+#onepage p {
+    margin-bottom: 25px;
+}
+#video iframe {
+    width: 340px; /*Altura de segurança do video - proporção relacionada ao formato de tela width*/
+    /*https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbkpIN0xKOUxhZHlBSGVwTUNLZUM2WTBYYUhfQXxBQ3Jtc0tueHQyalpxV0pmNlR0QzNMRmRua2JnQXhvXzBzR19IMEVvRU9rdHRZUG9tcVhnblRPREpzZTlramRaOFRrbTZIMmpfRk1rYWZ2a2VJT3lpN2pGc2dhTFhzQ2RlMlBiMXFQQ0Z4XzdNNVV0ZUdzd0hPQQ&q=https%3A%2F%2Fwww.digitalrebellion.com%2Fwebapps%2Faspectcalc%3Fcalc%3Dheight%26cbo_aspect%3Da178%26res_w2%3D560&v=7EfnrepGkoE*/
+    /*link acima para calcular a altura do video*/
+    height: 191px;
+    /*Excluir frameborder da importação do youtube e colocar o código de border zero no css como está abaixo.*/
+    border: 0;
+}
+
+/*Smart Phone Landscape>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*Aqui estamos fazendo a condição*/
+@media (min-width: 576px){
+    /*Layout*/
+    .Container{
+        max-width: 540px;
+    }
+    /*Destaque - sombra na reading tag h1 e h2 */
+    main h1, main h2 {
+        text-shadow: #000 0.05em 0.05em 0.05em;
+    }
+}
+#video iframe {
+    width: 560px; /*Altura de segurança do video - proporção relacionada ao formato de tela width*/
+    /*https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbkpIN0xKOUxhZHlBSGVwTUNLZUM2WTBYYUhfQXxBQ3Jtc0tueHQyalpxV0pmNlR0QzNMRmRua2JnQXhvXzBzR19IMEVvRU9rdHRZUG9tcVhnblRPREpzZTlramRaOFRrbTZIMmpfRk1rYWZ2a2VJT3lpN2pGc2dhTFhzQ2RlMlBiMXFQQ0Z4XzdNNVV0ZUdzd0hPQQ&q=https%3A%2F%2Fwww.digitalrebellion.com%2Fwebapps%2Faspectcalc%3Fcalc%3Dheight%26cbo_aspect%3Da178%26res_w2%3D560&v=7EfnrepGkoE*/
+    /*link acima para calcular a altura do video*/
+    height: 315px;
+}
+
+/*Tablet Portrait>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 768px){
+    /*Layout*/
+    .Container{
+        max-width: 720px;
+    }
+    /*Destaque*/
+    main {
+        height: 45vh;
+    }
+    main h1 {
+        font-size: 5.5em;
+    }
+    main h2 {
+        font-size: 2em;
+    }
+}
+
+
+/*Tablet Landscape>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 992px){
+    /*Layout*/
+    .Container{
+        max-width: 960px;
+    }
+    /*Destaque*/
+    main {
+        height: 70vh;
+    }
+}
+/*PC>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 1200px){
+    /*Layout*/
+    .Container{
+        max-width: 1140px;
+    }
+    /*Cabeçalho*/
+    header {
+        height: 120px;
+    }
+
+    #logo img {
+        width: 189px;
+        height: 189px;
+        /*Definindo margem superior da logo*/
+        margin-top: 30px;
+    }
+    label {
+        display: none;
+    }
+    nav ul {
+        position: static;
+        height: auto; 
+        background-color: transparent; /*Sem cor de fundo*/
+        margin-top: 50px; /*Margem em relação ao topo*/
+    }
+    nav ul li {
+        float: left; /*Técnica para os elementos flutuarem a esquerda*/
+        border: 0;
+    }
+    nav ul li a {
+        color: #343538; /*cor da fonte*/
+    }
+    /*Mudar a cor quando o cursor estiver em cima do item do menu*/
+    nav ul li a:hover {
+        color: #c00000;
+    }
+    /*destaqueSobre*/
+    #sobre{
+        background-attachment: fixed; /*Efeito Rolagem Paralax, Fixar background, obs não entendi a função dessa configuração*/
+    }
+    #destaqueSobre {
+        display: inline; /*fazer imagem do destaque sobre aparecer*/
+    }
+    #destaqueSobre img {
+        border-radius: 50%; /*Deixar a imagem redonda, a técnica deve ser aplicada em imagem quadrada*/
+        margin-right: 50px; /*Margem lateral direita*/
+    }
+    /*One Page*/
+    .Flex3 {
+        flex-direction: row; /*Elementos em linha*/
+        align-items: center;
+    }
+}
